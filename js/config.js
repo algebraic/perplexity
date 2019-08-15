@@ -9,4 +9,3 @@ $("#save").click(function() {
     var config = JSON.stringify($("form").serializeFormJSON())
     localStorage.setItem("perplexity_config", config);
 });
-

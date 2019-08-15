@@ -13,6 +13,8 @@ $(function() {
         var content = document.importNode(section_content, true);
         $("div#import-container").html(content).find("content").find("div").show();
     });
+    // show default section
+    $("a.default").click();
 
     // search by name for movies/episodes
     $("#search-form").submit(function(e) {
