@@ -1,8 +1,11 @@
 // load config
 var config = JSON.parse(localStorage.getItem("perplexity_config"));
-$.each(config, function(k, v) {
-    $("#" + k).val(v);
-});
+
+if (config != null) {
+    $.each(config, function(k, v) {
+        $("#" + k).val(v);
+    });
+}
 
 // save config
 $("#save").click(function() {

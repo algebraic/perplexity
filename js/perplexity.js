@@ -13,8 +13,11 @@ $(function() {
         var content = document.importNode(section_content, true);
         $("div#import-container").html(content).find("content").find("div").show();
     });
-    // show default section
-    $("a.default").click();
+
+    // show config page if config file doesn't exist
+    if (!localStorage.getItem("perplexity_config")) {
+        $("a.default").click();
+    }
 
     // search by name for movies/episodes
     $("#search-form").submit(function(e) {
