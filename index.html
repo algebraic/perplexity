@@ -36,11 +36,15 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans|Autour+One|Fontdiner+Swanky|Goblin+One|Nova+Oval|Khula:700&display=swap"
         rel="stylesheet">
 
+    <script>
+        // load config
+        const config = JSON.parse(localStorage.getItem("perplexity_config"));
+    </script>
     <script src="js/perplexity.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/library.js"></script>
     <script src="js/server.js"></script>
-    
+
     <!-- imports -->
     <link rel="import" href="sections/navbar.html" id="import-navbar">
     <link rel="import" href="sections/config.html" id="import-config">

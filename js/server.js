@@ -1,9 +1,11 @@
 // list server info
 $(document).on("click", "#server-info", function() {
-    if (typeof BASEURL === "undefined" || typeof TOKEN === "undefined") {
-        // warn
-        $(".server-container").text("No server configuration found");
+    // // load config
+    if (config === null) {
+        $("a.default").click();
     } else {
+        const BASEURL = "http://" + config["ip"];
+        const TOKEN = "X-Plex-Token=" + config["token"];
         var url = BASEURL + "/?" + TOKEN;
         $.get(url, function(xmlData) {
             var mediaContainer = $(xmlData).find("MediaContainer");
