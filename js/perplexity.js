@@ -5,7 +5,8 @@ $(function() {
     console.info(navbar_import);
 
     var navbar_content = navbar_import.import.querySelector("content");
-    console.info("navbar_content: " + navbar_content);
+    console.info("navbar_content::");
+    console.info(navbar_content);
 
     $("content.import-navbar").html(document.importNode(navbar_content, true));
 
