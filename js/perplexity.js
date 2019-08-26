@@ -1,11 +1,12 @@
 $(function() {
     // import navbar
     var navbar_import = document.querySelector("#import-navbar");
-    console.info("navbar_import: " + navbar_import);
+    console.info("navbar_import::");
+    console.info(navbar_import);
 
     var navbar_content = navbar_import.import.querySelector("content");
     console.info("navbar_content: " + navbar_content);
-    
+
     $("content.import-navbar").html(document.importNode(navbar_content, true));
 
     // import section content
