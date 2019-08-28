@@ -61,7 +61,7 @@ $(function() {
                 itemblock += "<img class='thumb' src=" + BASEURL + imgpath + "?" + TOKEN + ">";
 
                 var guid_raw = $(this).attr("guid");
-                var src_url = getLinkFromGuid(guid_raw);
+                var src_url = getLinkFromGuid(guid_raw, type);
                 var src_type = guid_raw.split(/[\.://,]+/)[3];
                 var src_logo = "<img src='img/" + src_type + ".png' class='src_icon icon_" + src_type + "' data-url='" + src_url + "'>";
                 itemblock += src_logo;
@@ -84,8 +84,6 @@ $(function() {
     });
 
 });
-
-
 
 // convert form to json object
 $.fn.serializeFormJSON = function() {
@@ -126,16 +124,14 @@ function msToTime(duration) {
 }
 
 // get link to movie/tv site from guid
-function getLinkFromGuid(guid_raw) {
+function getLinkFromGuid(guid_raw, type) {
     var guid = guid_raw.split(/[\.://,]+/);
     var src_url = "";
-    console.info("### guid = " + guid_raw);
     switch (guid[3]) {
         case "imdb":
             src_url = "https://www.imdb.com/title/" + guid[4];
             break;
         case "themoviedb":
-            var type = "tv";
             src_url = "https://www.themoviedb.org/" + type + "/" + guid[4];
             break;
         case "thetvdb":
