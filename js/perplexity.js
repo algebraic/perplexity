@@ -129,6 +129,7 @@ function msToTime(duration) {
 function getLinkFromGuid(guid_raw) {
     var guid = guid_raw.split(/[\.://,]+/);
     var src_url = "";
+    console.info("### guid = " + guid_raw);
     switch (guid[3]) {
         case "imdb":
             src_url = "https://www.imdb.com/title/" + guid[4];
