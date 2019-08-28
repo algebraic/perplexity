@@ -3,7 +3,7 @@ $(function() {
     var navbar_import = document.querySelector("#import-navbar");
     console.info("navbar_import::");
     console.info(navbar_import);
-
+    alert('pause...');
     var navbar_content = navbar_import.import.querySelector("content");
     console.info("navbar_content::");
     console.info(navbar_content);
