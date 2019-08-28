@@ -113,7 +113,7 @@ $(document).on("click", "#load-libraries", function() {
 
                                     output += "<div class='row'><div class='col-lg-4'>";
                                     if ($(movie).attr("guid").indexOf("none") == -1) {
-                                        output += "<div><a href='" + getLinkFromGuid($(movie).attr("guid")) + "' target='_blank'><img src='img/imdb_small.png'/> <span class='adjust-top'>" + showMovieAttr(movie, "rating", "") + "</a></span></div></div>";
+                                        output += "<div><a href='" + getLinkFromGuid($(movie).attr("guid"), "movie") + "' target='_blank'><img src='img/imdb_small.png'/> <span class='adjust-top'>" + showMovieAttr(movie, "rating", "") + "</a></span></div></div>";
                                     } else {
                                         // just empty to hide it
                                         output += "<div></div></div>";
