@@ -3,7 +3,7 @@ $(document).on("click", "#load-libraries", function() {
     if (config === null) {
         $("a.default").click();
     } else {
-        const BASEURL = "http://" + config["ip"];
+        const BASEURL = "https://" + config["ip"];
         const TOKEN = "X-Plex-Token=" + config["token"];
 
         // list libraries on server

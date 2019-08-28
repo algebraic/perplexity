@@ -4,7 +4,7 @@ $(document).on("click", "#server-info", function() {
     if (config === null) {
         $("a.default").click();
     } else {
-        const BASEURL = "http://" + config["ip"];
+        const BASEURL = "https://" + config["ip"];
         const TOKEN = "X-Plex-Token=" + config["token"];
         var url = BASEURL + "/?" + TOKEN;
         $.get(url, function(xmlData) {
