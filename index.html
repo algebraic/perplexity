@@ -34,33 +34,30 @@
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Autour+One|Fontdiner+Swanky|Goblin+One|Nova+Oval|Khula:700&display=swap" rel="stylesheet">
 
-    <!-- imports -->
-    <link rel="import" href="sections/navbar.html" id="import-navbar">
-    <link rel="import" href="sections/config.html" id="import-config">
-    <link rel="import" href="sections/library.html" id="import-library">
-    <link rel="import" href="sections/server.html" id="import-server">
-    
-    <script>
-        // load config
-        const config = JSON.parse(localStorage.getItem("perplexity_config"));
-    </script>
-    
-    <script src="js/navbar.js"></script>
-    <script src="js/library.js"></script>
-    <script src="js/server.js"></script>
-    <script src="js/perplexity.js"></script>
-
 </head>
 
 <body>
 
-    <content class="import-navbar"></content>
-
+    <!-- imports -->
+    <object data="sections/navbar.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
+    
     <div class="container text-light mt-3">
-        <div id="import-container"></div>
-        <div id="output-container"></div>
+        <object data="sections/config.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
+        <object data="sections/library.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
+        <object data="sections/server.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
     </div>
 
 </body>
 
+<script>
+    // load config
+    const config = JSON.parse(localStorage.getItem("perplexity_config"));
+</script>
+
+<script src="../js/navbar.js"></script>
+<script src="../js/library.js"></script>
+<script src="../js/server.js"></script>
+<script src="../js/perplexity.js"></script>
+
 </html>
+

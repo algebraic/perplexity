@@ -1,4 +1,12 @@
+console.debug("loading navbar.js");
+
 // navbar link behavior
-$("a.dropdown-item").click(function() {
-    $("#server-output").empty();
+$(document).on("click", "a.dropdown-item", function() {
+    $("div.container").removeClass("hide");
+    // hide & show junk appropriately
+    var $this = $(this);
+    $("div.section").hide();
+    var section = $this.attr("data-import");
+    $("div.section#" + section).show();
 });
+

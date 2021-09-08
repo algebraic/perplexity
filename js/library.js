@@ -1,3 +1,5 @@
+console.debug("loading library.js");
+
 $(document).on("click", "#load-libraries", function() {
     // // load config
     if (config === null) {

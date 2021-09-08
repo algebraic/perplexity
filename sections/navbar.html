@@ -1,57 +1,34 @@
-<content>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="./"><img src="img/favicon/favicon-32x32.png"><span
-                class="navbar-brand-text ml-2">per<img src="img/plex-logo.svg" class="title-icon">ity</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="./"><img src="../img/favicon/favicon-32x32.png"><span
+            class="navbar-brand-text ml-2">per<img src="../img/plex-logo.svg" class="title-icon">ity</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#" id="server-library">Libraries</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="server-info">Server Info</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="edit-config">Edit Config</a>
-                </li> -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Server
-                    </a>
-                    <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item section-link" href="#" data-import="import-library" id="load-libraries">Libraries</a>
-                        <a class="dropdown-item section-link" href="#" data-import="import-server" id="server-info">Server Info</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item section-link default" href="#" data-import="import-config">Server Config</a>
-                    </div>
-                </li>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sort Stuff
-                    </a>
-                    <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item section-link" href="#" id="">stuff</a>
-                        <a class="dropdown-item section-link" href="#" id="">things</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item section-link" href="#" id="">junk</a>
-                    </div>
-                </li> -->
-            </ul>
-            <form class="form-inline search-form" id="search-form">
-                <div class="input-group">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-text">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit" id="search"><i
-                                class="fas fa-search"></i></button>
-                    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Select
+                </a>
+                <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item section-link" href="#" data-import="library-section" id="load-libraries">Libraries</a>
+                    <a class="dropdown-item section-link" href="#" data-import="server-section" id="server-info">Server Info</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item section-link default" href="#" data-import="config-section">Server Config</a>
                 </div>
-            </form>
-        </div>
-    </nav>
-</content>
+            </li>
+        </ul>
+        <form class="form-inline search-form" id="search-form">
+            <div class="input-group">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-text">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" id="search"><i
+                            class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</nav>

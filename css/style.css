@@ -189,3 +189,7 @@ img.detail-thumb {
     color: #fff;
     text-decoration: none;
 }
+
+div.section {
+    display: none;
+}
