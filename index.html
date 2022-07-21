@@ -29,13 +29,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">link1</a>
+                        <a class="nav-link active" href="#" data-id="test1">link1</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">link2</a>
+                        <a class="nav-link" href="#" data-id="test2">link2</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">link3</a>
+                        <a class="nav-link" href="#" data-id="test3">link3</a>
                     </li>
                 </ul>
             </div>
@@ -46,8 +46,8 @@
         testing 3
         <br><hr><br>
         <object class="import" id="test1" data="pages/page1.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
-        <object class="import" id="test1" data="pages/page2.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
-        <object class="import" id="test1" data="pages/page3.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
+        <object class="import" id="test2" data="pages/page2.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
+        <object class="import" id="test3" data="pages/page3.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -68,6 +68,10 @@
 
             $("object.import").each(function () {
                 // console.info("::object::");
+            });
+
+            $(".nav-link").click(function() {
+                alert("data-id = " + $(this).attr("data-id"));
             });
 
         });
