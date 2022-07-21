@@ -11,6 +11,7 @@
 
         <style>
             .page-hide {display: none}
+            .hide {display: none}
         </style>
 </head>
 
@@ -42,8 +43,8 @@
         </div>
     </nav>
 
-    <div class="container">
-        testing 5
+    <div class="container hide">
+        testing 6
         <br><hr><br>
         <object class="import" id="test1" data="pages/page1.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
         <object class="import" id="test2" data="pages/page2.html" onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
@@ -65,6 +66,7 @@
     <script>
         $(function () {
             console.info("document ready");
+            $("div.container").removeClass("hide");
 
             $("object.import").each(function () {
                 // console.info("::object::");
