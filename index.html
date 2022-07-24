@@ -10,7 +10,6 @@
 
 
     <style>
-        /* .page-hide {display: none} */
         .hide {
             display: none
         }
@@ -46,15 +45,14 @@
     </nav>
 
     <div class="container hide">
-        testing 01
+        testing 02
         <br>
         <hr><br>
-        <object class="import" id="test1" data="pages/page1.html"
-            onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
-        <object class="import" id="test2" data="pages/page2.html"
-            onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
-        <object class="import" id="test3" data="pages/page3.html"
-            onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
+
+        <!-- onload="this.before(this.contentDocument.body.children[0]); this.remove(); -->
+        <object class="import" id="test1" data="pages/page1.html""></object>
+        <object class="import" id="test2" data="pages/page2.html"></object>
+        <object class="import" id="test3" data="pages/page3.html"></object>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -74,7 +72,9 @@
             console.info("document ready");
 
             $("object.import").each(function () {
-                // console.info("::object::");
+                console.info("object loading: " + $(this).attr("id"));
+                this.before(this.contentDocument.body.children[0]);
+                this.remove();
             });
 
             $(".nav-link").click(function () {
