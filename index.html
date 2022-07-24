@@ -45,7 +45,7 @@
     </nav>
 
     <div class="container">
-        testing 04, jquery load
+        testing 05, jquery load
         <br>
         <hr><br>
         <div id="test-container"></div>
@@ -79,12 +79,13 @@
 
             $(".nav-link").click(function () {
                 var id = $(this).attr("data-id");
-                $("#test-container").load("pages/" + id + ".html", function () {
-                    console.info("loading " + id);
+                console.info("loading " + id);
+                $("#test-container").load("/pages/" + id + ".html", function () {
+                    console.info("** loaded " + id);
                 });
             });
 
-            $("#bottom-div").load("pages/test1.html");
+            $("#bottom-div").load("https://algebraic.github.io/perplexity/pages/page1.html");
 
         });
     </script>
