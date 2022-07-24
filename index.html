@@ -31,13 +31,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" data-id="test1">link1</a>
+                        <a class="nav-link active" href="#" data-id="page1">link1</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-id="test2">link2</a>
+                        <a class="nav-link" href="#" data-id="page2">link2</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-id="test3">link3</a>
+                        <a class="nav-link" href="#" data-id="page3">link3</a>
                     </li>
                 </ul>
             </div>
@@ -45,7 +45,7 @@
     </nav>
 
     <div class="container">
-        testing 06
+        testing 07
         <br>
         <hr><br>
         <div id="test-container"></div>
@@ -56,10 +56,6 @@
         <object class="import" id="test3" data="pages/page3.html"
             onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object> -->
     </div>
-
-    <br><hr><br>
-
-    <div id="bottom-div"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
@@ -84,8 +80,6 @@
                     console.info("** loaded " + id);
                 });
             });
-
-            $("#bottom-div").load("https://algebraic.github.io/perplexity/pages/page1.html");
 
         });
     </script>
