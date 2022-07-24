@@ -45,7 +45,7 @@
     </nav>
 
     <div class="container">
-        testing 02, jquery load
+        testing 03, jquery load
         <br>
         <hr><br>
         <div id="test-container"></div>
@@ -75,17 +75,10 @@
 
             $(".nav-link").click(function () {
                 var id = $(this).attr("data-id");
-                $("#test-container").empty().load("pages/" + id, function () {
-                    alert("Load was performed.");
+                $("#test-container").load("pages/" + id + ".html", function () {
+                    console.info("loading " + id);
                 });
             });
-
-            $("div.container").removeClass("hide");
-
-            // try this out?
-            // $("#result").load("ajax/test.html", function () {
-            //     alert("Load was performed.");
-            // });
 
         });
     </script>
