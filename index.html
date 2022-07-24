@@ -45,7 +45,7 @@
     </nav>
 
     <div class="container">
-        testing 05, jquery load
+        testing 06
         <br>
         <hr><br>
         <div id="test-container"></div>
@@ -80,7 +80,7 @@
             $(".nav-link").click(function () {
                 var id = $(this).attr("data-id");
                 console.info("loading " + id);
-                $("#test-container").load("/pages/" + id + ".html", function () {
+                $("#test-container").load("./pages/" + id + ".html", function () {
                     console.info("** loaded " + id);
                 });
             });
