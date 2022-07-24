@@ -45,7 +45,7 @@
     </nav>
 
     <div class="container">
-        testing 03, jquery load
+        testing 04, jquery load
         <br>
         <hr><br>
         <div id="test-container"></div>
@@ -56,6 +56,10 @@
         <object class="import" id="test3" data="pages/page3.html"
             onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object> -->
     </div>
+
+    <br><hr><br>
+
+    <div id="bottom-div"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
@@ -79,6 +83,8 @@
                     console.info("loading " + id);
                 });
             });
+
+            $("#bottom-div").load("pages/test1.html");
 
         });
     </script>
