@@ -44,16 +44,17 @@
         </div>
     </nav>
 
-    <div class="container hide">
-        testing 01
+    <div class="container">
+        testing 02, jquery load
         <br>
         <hr><br>
-        <object class="import" id="test1" data="pages/page1.html"
+        <div id="test-container"></div>
+        <!-- <object class="import" id="test1" data="pages/page1.html"
             onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
         <object class="import" id="test2" data="pages/page2.html"
             onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
         <object class="import" id="test3" data="pages/page3.html"
-            onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object>
+            onload="this.before(this.contentDocument.body.children[0]); this.remove();"></object> -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -72,26 +73,19 @@
         $(function () {
             console.info("document ready");
 
-            $("object.import").each(function () {
-                console.info("object loading: " + $(this).attr());
-                this.before(this.contentDocument.body.children[0]);
-                this.remove();
-            });
-
             $(".nav-link").click(function () {
-                $("div.page-hide").hide();
                 var id = $(this).attr("data-id");
-                $(id).show();
-                console.info("nav-link clicked: " + id);
-                // alert("data-id = " + $(this).attr("data-id"));
+                $("#test-container").empty().load("pages/" + id, function () {
+                    alert("Load was performed.");
+                });
             });
 
             $("div.container").removeClass("hide");
 
             // try this out?
-            $("#result").load("ajax/test.html", function () {
-                alert("Load was performed.");
-            });
+            // $("#result").load("ajax/test.html", function () {
+            //     alert("Load was performed.");
+            // });
 
         });
     </script>
