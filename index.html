@@ -5,33 +5,80 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>perplexity</title>
+
+    <!-- favicon stuff -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#b91d47">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
 
     <style>
         .hide {
             display: none
         }
+
+        a.navbar-brand {
+            font-family: 'Khula', sans-serif;
+            color: #cccccc !important;
+            text-transform: uppercase;
+            font-size: 28px;
+        }
+
+        .navbar-brand-text {
+            font-size: 29px;
+        }
+
+        .title-icon {
+            height: 20px;
+            margin: -4px 1px 0px 2px;
+        }
+
+        .nav-link {
+            color:white !important;
+        }
+        .nav-link.active {
+            color:orange !important;
+        }
+        .form-row {
+            padding-bottom:20px;
+        }
     </style>
+
+    <!-- google fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans|Autour+One|Fontdiner+Swanky|Goblin+One|Nova+Oval|Khula:700&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar bg-dark text-white navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="img/favicon-32x32.png" alt="perplexity" title="perplexity">
+                <img src="img/plex.png" alt="perplexity" title="perplexity">
+                <span class="navbar-brand-text ml-2">per<img src="img/plex-logo.svg" class="title-icon">ity</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" data-id="page1">link1</a>
+                        <a class="nav-link" href="#" data-id="config"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" style="margin-left:auto; margin-right:auto" fill="currentColor" class="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
+                            <path d="M12.496 8a4.491 4.491 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11c.027.2.04.403.04.61Z"/>
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.49 4.49 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8Zm-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27.596-.894Z"/>
+                          </svg></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-id="page2">link2</a>
@@ -44,13 +91,7 @@
         </div>
     </nav>
 
-    <div class="container">
-        testing 10
-        <br>
-        <hr><br>
-        <div id="test-container"></div>
-
-    </div>
+    <div class="container" id="content"><br></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
@@ -69,9 +110,10 @@
             console.info("document ready");
 
             $(".nav-link").click(function () {
-                var id = $(this).attr("data-id");
+                $(".nav-link").removeClass("active");
+                var id = $(this).addClass("active").attr("data-id");
                 console.info("loading " + id);
-                $("#test-container").load("./pages/" + id + ".html", function () {
+                $("#content").load("./pages/" + id + ".html", function () {
                     console.info("** loaded " + id);
                 });
             });

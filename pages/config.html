@@ -1,0 +1,63 @@
+<h2><br>
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" style="margin-top:-4px" fill="currentColor"
+    class="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
+    <path d="M12.496 8a4.491 4.491 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11c.027.2.04.403.04.61Z" />
+    <path
+      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.49 4.49 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8Zm-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27.596-.894Z" />
+  </svg>
+  Server Config
+</h2>
+<br><br>
+
+
+<form class="col-lg-4 pl-0">
+  <div class="form-row align-items-center">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="ip" name="ip">
+      <label for="ip">Plex Server Address & Port</label>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="token" name="token">
+      <label for="token">Plex Token</label>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <button type="button" class="btn btn-primary" id="save">Save</button>
+  </div>
+
+</form>
+
+<!-- <form class="row g-3 needs-validation" novalidate>
+  <div class="container text-center">
+    <div class="row align-items-start">
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="server-ip" required>
+          <label for="floatingInput">Plex Server IP Address:Port</label>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="server-token" required>
+          <label for="floatingPassword">Plex Server Token</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="btn btn-primary">Save</a>
+</form> -->
+
+
+<script>
+  $(function () {
+
+    // add generic placeholder attr for floating labels
+    $(":text", ".form-floating").attr("placeholder", ".")
+  });
+</script>
