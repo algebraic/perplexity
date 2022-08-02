@@ -4,6 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="646751083447-2uv66stq260tabe193nhsp3e263sipe4.apps.googleusercontent.com">
+
+
     <title>perplexity</title>
 
     <!-- favicon stuff -->
@@ -42,13 +45,15 @@
         }
 
         .nav-link {
-            color:white !important;
+            color: white !important;
         }
+
         .nav-link.active {
-            color:orange !important;
+            color: orange !important;
         }
+
         .form-row {
-            padding-bottom:20px;
+            padding-bottom: 20px;
         }
     </style>
 
@@ -75,10 +80,14 @@
             <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-id="config"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" style="margin-left:auto; margin-right:auto" fill="currentColor" class="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
-                            <path d="M12.496 8a4.491 4.491 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11c.027.2.04.403.04.61Z"/>
-                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.49 4.49 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8Zm-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27.596-.894Z"/>
-                          </svg></a>
+                        <a class="nav-link" href="#" data-id="config"><svg xmlns="http://www.w3.org/2000/svg" width="28"
+                                height="28" style="margin-left:auto; margin-right:auto" fill="currentColor"
+                                class="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.496 8a4.491 4.491 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11c.027.2.04.403.04.61Z" />
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.49 4.49 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8Zm-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27.596-.894Z" />
+                            </svg></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-id="page2">link2</a>
@@ -86,6 +95,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-id="page3">link3</a>
                     </li>
+                    <li class="nav-item">
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    </li>
+                    
+
                 </ul>
             </div>
         </div>
@@ -104,6 +118,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <script>
         $(function () {
@@ -117,6 +132,7 @@
                     console.info("** loaded " + id);
                 });
             });
+
 
         });
     </script>
