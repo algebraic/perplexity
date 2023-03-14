@@ -1,13 +1,6 @@
 console.debug("loading library.js");
 
 $(document).on("click", "#load-libraries", function() {
-    // // load config
-    if (config === null) {
-        $("a.default").click();
-    } else {
-        const BASEURL = "https://" + config["ip"];
-        const TOKEN = "X-Plex-Token=" + config["token"];
-
         // list libraries on server
         if (typeof BASEURL === "" || typeof TOKEN === "") {
             // warn
@@ -161,7 +154,6 @@ $(document).on("click", "#load-libraries", function() {
 
             });
         }
-    }
 });
 
 // back button

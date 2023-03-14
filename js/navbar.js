@@ -7,6 +7,7 @@ $(document).on("click", "a.dropdown-item", function() {
     var $this = $(this);
     $("div.section").hide();
     var section = $this.attr("data-import");
+    console.debug("section=" + section);
     $("div.section#" + section).show();
 });
 

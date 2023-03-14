@@ -1,19 +1,35 @@
 console.debug("loading perplexity.js");
 
 $(function() {
+
+    $("a.default").click();
+
     // search by name for movies/episodes
     $("#search-form").submit(function(e) {
         e.preventDefault();
+        console.debug("search form submit");
+
+        // hide other sections & show search junk
+        $("div.container").removeClass("hide");
+        $("div.section").hide();
+        $("div.section#search-results").show();
+
         var search = $("#search-text").val();
+        console.debug("search term: '" + search + "'");
         var url = BASEURL + "/search?query=" + search + "&" + TOKEN;
+        console.debug("search url: " + url);
 
         var fields = ["librarySectionTitle", "guid", "key", "title", "type", "summary", "rating", "year", "thumb"]
 
         $.get(url, function(xmlData) {
+            console.debug("GET " + url);
+            console.debug(xmlData);
+
             var mediaContainer = $(xmlData).find("MediaContainer");
             var length = $(mediaContainer).children("Video").length;
             $("#output-container").empty().append("<h5>Search Results for '" + search + "' (" + length + ")</h5><br>");
 
+            console.debug("-----------------------------------");
             $(mediaContainer).children("Video").each(function() {
                 var imgpath = null;
                 var type = null;
@@ -33,22 +49,35 @@ $(function() {
                     var title = $(this).attr("title");
                     type = "movie";
                 }
+
+                console.debug("imgpath: " + imgpath);
+                console.debug("title: " + title);
+                
                 var itemblock = "<div class='thumb-container'>";
                 itemblock += "<img class='thumb' src=" + BASEURL + imgpath + "?" + TOKEN + ">";
 
-                var guid_raw = $(this).attr("guid");
-                var src_url = getLinkFromGuid(guid_raw, type);
-                var src_type = guid_raw.split(/[\.://,]+/)[3];
-                var src_logo = "<img src='img/" + src_type + ".png' class='src_icon icon_" + src_type + "' data-url='" + src_url + "'>";
-                itemblock += src_logo;
+                // zj: guid doesn't have the imdb stuff in it anymore, so this is broken
+                // zj: used to append a little imdb logo & clicky link to imdb page
+                // var guid_raw = $(this).attr("guid");
+                // var src_url = getLinkFromGuid(guid_raw, type);
+                // var src_type = guid_raw.split(/[\.://,]+/)[3];
+                // var src_logo = "<img src='img/" + src_type + ".png' class='src_icon icon_" + src_type + "' data-url='" + src_url + "'>";
+                // debug output of variables
+                // console.debug("guid_raw: " + guid_raw);
+                // console.debug("src_url: " + src_url);
+                // console.debug("src_type: " + src_type);
+                // console.debug("src_logo: " + src_logo);
+                // itemblock += src_logo;
+
                 itemblock += "<span class='thumb-footer " + type + "'>" + title + "</span>";
                 itemblock += "</div>";
                 $("#output-container").append(itemblock);
 
-                $(document).on("click", ".src_icon", function() {
-                    window.open($(this).attr("data-url"));
-                });
+                // $(document).on("click", ".src_icon", function() {
+                //     window.open($(this).attr("data-url"));
+                // });
 
+                console.debug("-----------------------------------");
             });
         }).done(function() {
             
