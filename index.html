@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>perplexity</title>
+
+    <!-- favicon stuff -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#b91d47">
+
+    <!-- regular stuff -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" crossorigin="anonymous"></script>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Autour+One|Fontdiner+Swanky|Goblin+One|Nova+Oval|Khula:700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./"><img src="../img/favicon/favicon-32x32.png"><span class="navbar-brand-text ps-2">per<img src="../img/plex-logo.svg" class="title-icon">ity</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Select
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item section-link" href="#" data-import="library-section" id="load-libraries">Libraries</a>
+                    <a class="dropdown-item section-link" href="#" data-import="server-section" id="server-info">Server Info</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item section-link" href="#" data-import="config-section">Server Config</a>
+                    <a class="dropdown-item section-link" href="https://algebraic.github.io/piscripts/web/"><img src="img/eyesort-16x16.png"> Eyesort</a>
+                </ul>
+              </li>
+            </ul>
+            <form class="form-inline search-form position-absolute end-0 pe-3" id="search-form">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-text">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" id="search"><i
+                                class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container text-light mt-3">
+
+    <!-- test area -->
+
+    <!-- no mas testing -->
+
+        <!-- server config section -->
+        <div class="section" id="config-section">
+            <div class="row">
+                <div class="col-lg-12 pl-0">
+                    <h2>Server Config</h2>
+                    <hr>
+                    <form class="col-lg-4 pl-0">
+                        <div class="form-row align-items-center">
+                            <label for="ip">Plex Server Address & Port</label>
+                            <input type="text" class="form-control" id="ip" name="ip">
+                        </div>
+                        <div class="form-row">
+                            <label for="token">Plex Token</label>
+                            <input type="text" class="form-control" id="token" name="token">
+                        </div>
+                        <hr>
+                        <button type="button" class="btn btn-success mr-2" id="save">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- library section -->
+        <div class="section" id="library-section">
+            <div class="row">
+                <div class="col-lg-12 pl-0">
+                    <h2>Libraries</h2>
+                    <hr>
+                    <div class="library-container"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- server section -->
+        <div class="section" id="server-section">
+            <div class="row">
+                <div class="col-lg-12 pl-0">
+                    <h2>Server Info</h2>
+                    <hr>
+                    <div class="server-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- search results -->
+        <div class="section" id="search-results">
+            <div class="row">
+                <div class="col-lg-12 pl-0">
+                    <h2>Search</h2>
+                    <hr>
+                    <div id="output-container"></div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+<script>
+    // load config
+    const config = JSON.parse(localStorage.getItem("perplexity_config"));
+    const BASEURL = "https://" + config["ip"];
+    const TOKEN = "X-Plex-Token=" + config["token"];
+/*
+    if (config === null) {
+        $("a.default").click();
+    } else {
+        const BASEURL = "https://" + config["ip"];
+        const TOKEN = "X-Plex-Token=" + config["token"];
+    }
+    */
+</script>
+
+<script src="js/config.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/library.js"></script>
+<script src="js/server.js"></script>
+<script src="js/perplexity.js"></script>
+
+</html>
+
