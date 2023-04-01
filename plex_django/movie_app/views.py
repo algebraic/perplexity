@@ -17,13 +17,15 @@ def get_movies(request):
         response = requests.get(url)
         movielist = response.json()
 
+        print(movielist)
         print("### results: " + str(movielist["total_results"]))
 
 
         for i in movielist["results"]:
             movie_data = Movie(
                 name=i['title'],
-                release_date=i['release_date']
+                release_date=i['release_date'],
+                image_url=i["poster_path"]
             )
             all_movies.append(movie_data)
             # movie_data.save()
