@@ -8,22 +8,32 @@ import requests, dateparser
 
 def get_movies(request):
     all_movies = []
-    if 'name' in request.GET:
-        name = request.GET['name']
+    resultsNum = ""
 
-        url = ("https://api.themoviedb.org/3/search/movie?api_key=ce283f8ff68c019530c5f5ccf045de2d&query=" + str(name).replace(" ", "+"))
-        # to include year: + "&year=" + str(year)
+    if 'search' in request.GET:
+        searchString = request.GET['search']
+        yearTest = str(searchString[-4:])
+        # if the last 5 characters of search string are " \d{4}" then we have a year also
+        if (yearTest.isnumeric()):
+            year = yearTest
+            title = searchString[:-5]
+        else:
+            year = ""
+            title = searchString
 
+        url = ("https://api.themoviedb.org/3/search/movie?api_key=ce283f8ff68c019530c5f5ccf045de2d&query=" + str(title).replace(" ", "+"))
+        if (str(year) != ""):
+            url += "&year=" + str(year)
+
+        print(url)
         response = requests.get(url)
         movielist = response.json()
-
-        print(movielist)
-        print("### results: " + str(movielist["total_results"]))
+        # print(movielist)
+        resultsNum = movielist["total_results"]
 
         for i in movielist["results"]:
             movie_data = Movie(
                 name=i['title'],
-                # release_date=i['release_date'],
                 release_date=dateparser.parse(i['release_date']),
                 image_url=i["poster_path"]
             )
@@ -31,7 +41,7 @@ def get_movies(request):
             # movie_data.save()
             # all_movies = Movie.objects.all().order_by('-id')
 
-    return render(request, 'movies/movie.html', {"all_movies": all_movies})
+    return render(request, 'movies/movie.html', {"all_movies": all_movies, "resultsNum": resultsNum})
 
 
 def movie_detail(request, id):
