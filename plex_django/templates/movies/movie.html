@@ -18,9 +18,9 @@
       <div class="card">
         <img class="card-img-top" src="https://image.tmdb.org/t/p/w200/{{ movie.image_url }}" alt="Card image cap">
         <div class="card-body text-center">
-          <p class="card-title">{{ movie.name }}</p>
+          <p class="card-title">{{ movie.name }} ({{ movie.release_date | date:"Y" }})</p>
           <hr>
-          <p class="card-text">{{ movie.release_date |date:"M d, Y" }}</p>
+          <p class="card-text">{{ movie.release_date | date:"M d, Y"}}</p>
           <a href="/movies/{{movie.id}}"><input type="submit" value="Learn More" class="btn btn-danger btn-sm" type="button" /></a>
         </div>
       </div>
