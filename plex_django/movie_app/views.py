@@ -1,14 +1,23 @@
+from urllib import request
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
+from django.urls import reverse
 from movie_app.models import Movie
-import requests, dateparser
-
+import requests, dateparser, re
 
 def get_movies(request):
     all_movies = []
     resultsNum = ""
+
+    if request.method == 'POST' and 'run_script' in request.POST:
+        # import function to run
+        from testscript import msg
+        msg()
+        # return user to required page
+        # return HttpResponseRedirect("/")
 
     if 'search' in request.GET:
         searchString = request.GET['search']
@@ -52,3 +61,19 @@ def movie_detail(request, id):
         'movies/movie_detail.html',
         {'movie': movie}
     )
+
+
+
+def is_movie_or_tvshow(file_name):
+    # Replace periods with spaces in the file name
+    file_name = file_name.replace('.', ' ')
+    # Extract the title and year from the file name using regular expressions
+    movie_match = re.match(r'^(.+?)\s*\(\s*(\d{4})\s*\)', file_name)
+    tvshow_match = re.match(r'^(.+?)\s*s(\d{1,2})e(\d{1,2})', file_name, re.IGNORECASE)
+    # Check if the file name matches the movie or TV show pattern
+    if movie_match:
+        return True, "Movie", movie_match.group(1), movie_match.group(2)
+    elif tvshow_match:
+        return True, "TV show", tvshow_match.group(1), f"Season {tvshow_match.group(2)}, Episode {tvshow_match.group(3)}"
+    else:
+        return False, None, None, None
